@@ -3,7 +3,6 @@ var u = require('../util')
 var pull = require('pull-stream')
 
 
-
 var plugs = require('../plugs')
 var message_content = plugs.first(exports.message_content = [])
 var avatar = plugs.first(exports.avatar = [])
@@ -23,7 +22,7 @@ exports.message_render = function (msg, sbot) {
     sbot_links({dest: msg.key, rel: 'mentions', keys: true}),
     pull.collect(function (err, links) {
       if(links.length)
-        backlinks.appendChild(h('label', 'backlinks:', 
+        backlinks.appendChild(h('label', 'backlinks:',
           h('div', links.map(function (link) {
             return message_link(link.key)
           }))
@@ -31,12 +30,11 @@ exports.message_render = function (msg, sbot) {
     })
   )
 
-  var msg = h('div.message',
-    h('div.title.row',
-      h('div.avatar', avatar(msg.value.author, 'thumbnail')),
-      h('div.message_meta.row', message_meta(msg))
+  var msg = h('div.media',
+    h('div.media-left',
+      h('div.media-object', avatar(msg.value.author, 'thumbnail'))
     ),
-    h('div.message_content', el),
+    h('div.media-body', h('h5.media-heading', message_meta(msg)), el),
     h('div.message_actions.row',
       h('div.actions', message_action(msg), ' ',
         h('a', {href: '#' + msg.key}, 'Reply')
@@ -56,8 +54,3 @@ exports.message_render = function (msg, sbot) {
 
   return msg
 }
-
-
-
-
-

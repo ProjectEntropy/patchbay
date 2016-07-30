@@ -65,5 +65,4 @@ document.head.appendChild(
 // h('style', fs.readFileSync('./bootstrap.css', 'utf8')
 
 
-console.log(modules['app.js'])
 document.body.appendChild(h('div.container', modules['app.js'].app[0]()))
