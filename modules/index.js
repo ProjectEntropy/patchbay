@@ -1,8 +1,8 @@
 module.exports = {
   "_screen_view.js":  require('./_screen_view.js'),
   "about.js":  require('./about.js'),
-  "avatar-edit.js":  require('./avatar-edit.js'),
   "audio-mp3.js":  require('./audio-mp3.js'),
+  "avatar-edit.js":  require('./avatar-edit.js'),
   "avatar-image.js":  require('./avatar-image.js'),
   "avatar-profile.js":  require('./avatar-profile.js'),
   "avatar.js":  require('./avatar.js'),
@@ -13,7 +13,6 @@ module.exports = {
   "feed.js":  require('./feed.js'),
   "file-input.js":  require('./file-input.js'),
   "follow.js":  require('./follow.js'),
-  "relationships.js":  require('./relationships.js'),
   "git.js":  require('./git.js'),
   "invite.js":  require('./invite.js'),
   "like.js":  require('./like.js'),
@@ -30,6 +29,7 @@ module.exports = {
   "post.js":  require('./post.js'),
   "private.js":  require('./private.js'),
   "public.js":  require('./public.js'),
+  "relationships.js":  require('./relationships.js'),
   "search-box.js":  require('./search-box.js'),
   "search.js":  require('./search.js'),
   "split.js":  require('./split.js'),
@@ -39,9 +39,3 @@ module.exports = {
   "thread.js":  require('./thread.js'),
   "timestamp.js":  require('./timestamp.js')
 }
-
-
-
-
-
-

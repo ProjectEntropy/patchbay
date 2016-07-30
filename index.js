@@ -56,7 +56,14 @@ if(process.title === 'node') {
 document.head.appendChild(
   h('style', fs.readFileSync('./style.css', 'utf8')
 ))
+document.head.appendChild(
+  h('style', fs.readFileSync('./bootstrap.css', 'utf8')
+))
+
+
+// h('style', fs.readFileSync('./reset.css', 'utf8')
+// h('style', fs.readFileSync('./bootstrap.css', 'utf8')
+
 
 console.log(modules['app.js'])
-document.body.appendChild(h('div.screen.column', modules['app.js'].app[0]()))
-
+document.body.appendChild(h('div.container', modules['app.js'].app[0]()))

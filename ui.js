@@ -4,7 +4,7 @@ var u = require('./util')
 var Scroller = require('pull-scroll')
 
 exports.createStream = function createStream (stream, render) {
-  var div = h('div.column', {style: {'overflow-y': 'auto'}})
+  var div = h('div.column')
 
   pull(
     stream,
@@ -21,4 +21,3 @@ exports.createRenderers = function (renderers, sbot) {
     })
   }
 }
-
