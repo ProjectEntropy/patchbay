@@ -23,7 +23,7 @@ exports.message_compose = function (meta, prepublish, cb) {
   var accessories
   meta = meta || {}
   if(!meta.type) throw new Error('message must have type')
-  var ta = h('textarea')
+  var ta = h('textarea.form-control')
 
   var blur
   ta.addEventListener('focus', function () {
@@ -75,9 +75,9 @@ exports.message_compose = function (meta, prepublish, cb) {
 
   var composer =
     h('div.compose', h('div.column', ta,
-      accessories = h('div.row.compose__controls',
+      accessories = h('fieldset.compose__controls',
         //hidden until you focus the textarea
-        {style: {display: 'none'}},
+        {disabled: true},
         file_input(function (file) {
           files.push(file)
 
@@ -85,7 +85,7 @@ exports.message_compose = function (meta, prepublish, cb) {
           ta.value += embed + '['+file.name+']('+file.link+')'
           console.log('added:', file)
         }),
-        h('button', 'Publish', {onclick: publish}))
+        h('button.btn.primary-btn', 'Publish', {onclick: publish}))
       )
     )
 
@@ -108,4 +108,3 @@ exports.message_compose = function (meta, prepublish, cb) {
   return composer
 
 }
-

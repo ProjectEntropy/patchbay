@@ -12,10 +12,9 @@ setInterval(function () {
 }, 60e3)
 
 exports.message_meta = function (msg) {
-  return updateTimestampEl(h('a.enter.timestamp', {
+  return updateTimestampEl(h('a.enter.timestamp.small', {
     href: '#'+msg.key,
     timestamp: msg.value.timestamp,
     title: new Date(msg.value.timestamp)
   }, ''))
 }
-

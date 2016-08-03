@@ -9,8 +9,6 @@ var avatar_image = plugs.first(exports.avatar_image = [])
 exports.avatar = function (author, classes) {
   return h('a.avatar',
     {href:'#'+author},
-    avatar_image(author, classes),
-    avatar_name(author)
+    avatar_image(author, classes)
   )
 }
-

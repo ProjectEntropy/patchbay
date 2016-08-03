@@ -12,7 +12,7 @@ var sbot_query = plugs.first(exports.sbot_query = [])
 exports.message_meta = function (msg) {
   var chan = msg.value.content.channel
   if (chan)
-    return h('a', {href: '##'+chan}, '#'+chan)
+    return h('span', h('a', {href: '##'+chan}, '#'+chan), " ")
 }
 
 exports.screen_view = function (path) {

@@ -13,8 +13,9 @@ var signified = require('../plugs').first(exports.signified = [])
 exports.search_box = function (go) {
 
   var suggestBox
-  var search = h('input.searchprompt', {
+  var search = h('div.input-group', h('input.searchprompt.form-control', {
     type: 'search',
+    placeholder: 'Search',
     onkeydown: function (ev) {
       switch (ev.keyCode) {
         case 13: // enter
@@ -31,7 +32,7 @@ exports.search_box = function (go) {
           return
       }
     }
-  })
+  }, h('span.input-group-btn', h('button.btn.btn-default', { type: 'button' }))))
 
   search.activate = function (sigil, ev) {
     search.focus()
@@ -92,6 +93,3 @@ exports.search_box = function (go) {
 
   return search
 }
-
-
-
