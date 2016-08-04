@@ -18,21 +18,38 @@ exports.message_render = function (msg, sbot) {
   var el = message_content(msg)
   if(!el) return
 
+  var links = []
+  for(var k in CACHE) {
+    var _msg = CACHE[k]
+    if(_msg.content.type == 'post' && Array.isArray(_msg.content.mentions)) {
+      for(var i = 0; i < _msg.content.mentions.length; i++)
+        if(_msg.content.mentions[i].link == msg.key)
+        links.push(k)
+    }
+  }
+
   var backlinks = h('div.backlinks')
   var author = msg.value.author
 
-  pull(
-    sbot_links({dest: msg.key, rel: 'mentions', keys: true}),
-    pull.collect(function (err, links) {
-      if(links.length)
-        backlinks.appendChild(h('label', 'backlinks:',
-          h('div', links.map(function (link) {
-            return message_link(link.key)
-          }))
-        ))
-    })
-  )
+  if(links.length)
+    backlinks.appendChild(h('label', 'backlinks:',
+      h('div', links.map(function (key) {
+        return message_link(key)
+      }))
+    ))
 
+
+//  pull(
+//    sbot_links({dest: msg.key, rel: 'mentions', keys: true}),
+//    pull.collect(function (err, links) {
+//      if(links.length)
+//        backlinks.appendChild(h('label', 'backlinks:',
+//          h('div', links.map(function (link) {
+//            return message_link(link.key)
+//          }))
+//        ))
+//    })
+//  )
   var msg = h('div.panel.panel-default', h('div.panel-body', h('div.media',
     h('div.media-left',
       avatar(author, 'thumbnail media-object')
