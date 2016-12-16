@@ -6,6 +6,7 @@ module.exports = {
   gives: 'app',
   create: function (api) {
     return function () {
+
       document.head.appendChild(h('link', {rel: "stylesheet", href:"dev-style.css"}))
 
       document.head.appendChild(h('script', {src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}))
