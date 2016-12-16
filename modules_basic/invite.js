@@ -36,7 +36,7 @@ exports.create = function (api) {
       if(!data) return cb(new Error('not a valid invite code:' + invite))
 
       onProgress('connecting...')
-  
+
       api.sbot_gossip_connect(data.remote, function (err) {
         if(err) console.log(err)
       })
@@ -88,14 +88,19 @@ exports.create = function (api) {
       //request follow
       //post pub announce
       //post follow pub
-      var div = h('div.column',
-        h('div',
-          "you have been invited to join:", h('br'),
-          h('code', data.invite)
+      var div = h('div',
+        h('div.col-sm-6.col-sm-offset-3',
+          h('div.jumbotron',
+            h('div',
+              h('h1', "Welcome to the Cryptoverse!"),
+              h("p", "This is your invite code:"),
+              h('div.invite', data.invite)
+            ),
+            h('button.btn.btn-success.btn-lg', 'Connect', {onclick: attempt})
+          )
         ),
-        h('button', 'accept', {onclick: attempt}),
-        progress
-      )
+      h('div.col-sm-12.well', "Status:", progress)
+    )
 
       function attempt () {
         self.invite_accept(invite, function (message) {
@@ -123,4 +128,3 @@ exports.create = function (api) {
     }
   }
 }
-
