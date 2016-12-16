@@ -37,12 +37,12 @@ exports.create = function (api) {
       }
     }
 
-    var okay = h('button', 'okay', {onclick: function () {
+    var okay = h('button.btn.btn-primary', 'okay', {onclick: function () {
       lb.remove()
       api.publish(content, cb)
     }})
 
-    var cancel = h('button', 'Cancel', {onclick: function () {
+    var cancel = h('button.btn.btn-default', 'Cancel', {onclick: function () {
       lb.remove()
       cb(null)
     }})
@@ -52,18 +52,17 @@ exports.create = function (api) {
     })
 
     lb.show(h('div.column.message-confirm',
-      h('div.message', 
-        h('div.title.row',
-          h('div.avatar', api.avatar(msg.value.author, 'thumbnail')),
+      h('div.panel.panel-default',
+        h('div.panel-heading',
+          h('div.avatar', api.avatar(msg.value.author, 'avatar')),
           h('div.message_meta.row', api.message_meta(msg))
         ),
-        h('div.message_content', api.message_content(msg)
+        h('div.panel-body', api.message_content(msg)
           || h('pre', JSON.stringify(msg, null, 2)))
       ),
-      h('div.row.message-confirm__controls', okay, cancel)
+      h('div.btn-group', okay, cancel)
     ))
 
     okay.focus()
   }
 }
-
