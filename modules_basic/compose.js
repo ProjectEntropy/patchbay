@@ -47,7 +47,7 @@ exports.create = function (api) {
     var accessories
     meta = meta || {}
     if(!meta.type) throw new Error('message must have type')
-    var ta = h('textarea', {
+    var ta = h('textarea.form-control', {
       placeholder: opts.placeholder || 'Write a message',
       style: {height: opts.shrink === false ? '200px' : ''}
     })
@@ -118,7 +118,7 @@ exports.create = function (api) {
     }
 
 
-    var publishBtn = h('button', 'Publish', {onclick: publish})
+    var publishBtn = h('button.btn', 'Publish', {onclick: publish})
     var composer =
       h('div.compose', h('div.column', ta,
         accessories = h('div.row.compose__controls',
@@ -151,5 +151,3 @@ exports.create = function (api) {
   }
 
 }
-
-

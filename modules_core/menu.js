@@ -9,20 +9,29 @@ module.exports = {
     var menu_items = api.menu_items //plugs.map(exports.menu_items = [])
 
     var status = h('div.status.error') //start off disconnected
-    var list = h('div.menu.column', {style: 'display: none;'})
+    var dropdown_menu = h("ul.dropdown-menu")
+    var list = h('li.dropdown',
+                 h("a.dropdown-toggle",
+                   {
+                      "href":"#",
+                      "role":"button",
+                      "aria-haspopup":"true",
+                      "aria-expanded":"false",
+                      "data-toggle":"dropdown",
+                      "haspopup": "true",
+                      "aria-expanded": "false"
+                    },
+                    status
+                  ),
+                  dropdown_menu
+                )
 
-    var menu = h('div.column', status, list , {
-      onmouseover: function (e) {
-        list.style.display = 'flex'
-      }, onmouseout: function () {
-        list.style.display = 'none'
-      }
-    })
+    var menu = h('ul.nav.navbar-nav.navbar-right', list)
 
     setTimeout(function () {
       menu_items().forEach(function (el) {
         if(el)
-          list.appendChild(el)
+          dropdown_menu.appendChild(h("ul", el))
       })
     }, 0)
 
@@ -37,9 +46,3 @@ module.exports = {
     }
   }
 }
-
-
-
-
-
-

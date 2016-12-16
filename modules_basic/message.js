@@ -22,6 +22,7 @@ exports.needs = {
   avatar: 'first',
   avatar_name: 'first',
   avatar_link: 'first',
+  avatar_image_link: 'first',
   message_meta: 'map',
   message_action: 'map',
   message_link: 'first',
@@ -38,11 +39,11 @@ exports.create = function (api) {
 
   function mini(msg, el) {
     var div = h('div.message.message--mini',
-      h('div.row',
+      h('div.col-md-12',
         h('div',
-          api.avatar_link(msg.value.author, api.avatar_name(msg.value.author)),
+          api.avatar(msg.value.author, 'avatar-small'),
           h('span.message_content', el)),
-        h('div.message_meta.row', api.message_meta(msg))
+        h('div.message_meta.pull-right.text-muted', api.message_meta(msg))
       )
     )
     div.setAttribute('tabindex', '0')
@@ -68,7 +69,7 @@ exports.create = function (api) {
 
     var backlinks = h('div.backlinks')
     if(links.length)
-      backlinks.appendChild(h('label', 'backlinks:', 
+      backlinks.appendChild(h('label', 'backlinks:',
         h('div', links.map(function (key) {
           return api.message_link(key)
         }))
@@ -79,7 +80,7 @@ exports.create = function (api) {
   //    sbot_links({dest: msg.key, rel: 'mentions', keys: true}),
   //    pull.collect(function (err, links) {
   //      if(links.length)
-  //        backlinks.appendChild(h('label', 'backlinks:', 
+  //        backlinks.appendChild(h('label', 'backlinks:',
   //          h('div', links.map(function (link) {
   //            return message_link(link.key)
   //          }))
@@ -87,17 +88,22 @@ exports.create = function (api) {
   //    })
   //  )
 
-    var msg = h('div.message',
-      h('div.title.row',
-        h('div.avatar', api.avatar(msg.value.author, 'thumbnail')),
-        h('div.message_meta.row', api.message_meta(msg))
+
+    var msg = h('div.panel.panel-default', h('div.panel-body', h('div.media',
+      h('div.media-left',
+        api.avatar_image_link(msg.value.author, 'media-object.avatar')
       ),
-      h('div.message_content', el),
-      h('div.message_actions.row',
-        h('div.actions', api.message_action(msg),
+      h('div.media-body',
+        h('h4.media-heading',
+          h('a', {href:'#'+msg.value.author}, api.avatar_name(msg.value.author)),
+          h('small.pull-right.text-muted', api.message_meta(msg))
+        ),
+        el,
+      h('div.message_actions',
+        h('div.actions', api.message_action(msg), ' ',
           h('a', {href: '#' + msg.key}, 'Reply')
         )
-      ),
+      )),
       backlinks,
       {onkeydown: function (ev) {
         //on enter, hit first meta.
@@ -110,7 +116,8 @@ exports.create = function (api) {
           msg.querySelector('.enter').click()
         }
       }}
-    )
+
+    )))
 
     // ); hyperscript does not seem to set attributes correctly.
     msg.setAttribute('tabindex', '0')
@@ -118,5 +125,3 @@ exports.create = function (api) {
     return msg
   }
 }
-
-

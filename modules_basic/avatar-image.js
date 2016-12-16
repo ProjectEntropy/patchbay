@@ -88,8 +88,7 @@ exports.create = function (api) {
 
     avatar_image: function (author, classes) {
       classes = classes || ''
-      if(classes && 'string' === typeof classes) classes = '.avatar--'+classes
-
+      
       var img = visualize(new Buffer(author.substring(1), 'base64'), 256)
       ;(classes || '').split('.').filter(Boolean).forEach(function (c) {
         img.classList.add(c)
@@ -107,4 +106,3 @@ exports.create = function (api) {
     }
   }
 }
-

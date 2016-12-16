@@ -23,9 +23,9 @@ exports.create = function (api) {
   return function (go) {
 
     var suggestBox
-    var search = h('input.searchprompt', {
+    var search = h('input.form-control', {
       type: 'search',
-      placeholder: 'Commands',
+      placeholder: 'Search',
       onkeydown: function (ev) {
         switch (ev.keyCode) {
           case 13: // enter
@@ -71,8 +71,7 @@ exports.create = function (api) {
       }, {})
     }, 10)
 
-    return search
+    return h('form.navbar-form.navbar-left', h('div.form-group', search))
   }
 
 }
-
