@@ -1,4 +1,4 @@
-var Tabs = require('hypertabs')
+var Tabs = require('hypertabs_bootstrap')
 var h = require('hyperscript')
 var pull = require('pull-stream')
 var u = require('../util')
@@ -56,12 +56,15 @@ exports.create = function (api) {
       }
     })
 
+
+    // Somehow get search thing into the menu
+    tabs.querySelector('#search_holder').appendChild(search)
+
     //reposition hypertabs menu to inside a container...
-    tabs.insertBefore(
-      h('nav.navbar.navbar-blue.navbar-static-top',
-        h('div.container-fluid', tabs.firstChild, //tabs
-        search, api.menu())
-    ), tabs.firstChild)
+    // tabs.insertBefore(
+    //   tabs.firstChild, //tabs
+    //   search, api.menu()
+    // )
   //  tabs.insertBefore(search, tabs.firstChild.nextSibling)
 
     var saved = []

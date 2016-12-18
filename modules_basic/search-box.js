@@ -71,7 +71,7 @@ exports.create = function (api) {
       }, {})
     }, 10)
 
-    return h('form.navbar-form.navbar-left', h('div.form-group', search))
+    return search
   }
 
 }
