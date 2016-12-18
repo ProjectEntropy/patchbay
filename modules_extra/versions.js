@@ -10,7 +10,7 @@ exports.create = function () {
 
   return {
     menu_items: function () {
-      return h('a', {href: '#/versions'}, '/versions')
+      return h('a', {href: '#/versions'}, h("i.glyphicon.glyphicon-floppy-disk"), 'versions')
     },
 
     builtin_tabs: function () {

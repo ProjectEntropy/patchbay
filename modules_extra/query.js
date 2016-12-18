@@ -16,7 +16,7 @@ exports.create = function (api) {
 
   return {
     menu_items: function () {
-      return h('a', {href:'#/query'}, '/query')
+      return h('a', {href:'#/query'}, h("i.glyphicon.glyphicon-search"), 'query')
     },
 
     builtin_tabs: function () {
@@ -39,7 +39,7 @@ exports.create = function (api) {
       return h('div.column.scroll',
         editor = h('textarea', {style: 'min-height:100px;', oninput: parse, onkeydown: function (e) {
           if(!(e.keyCode === 13 && e.ctrlKey)) return
-      
+
           status.textContent = 'running...'
           parse()
           output.innerHTML = ''

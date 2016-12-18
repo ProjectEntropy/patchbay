@@ -106,7 +106,7 @@ exports.create = function (api) {
 
   return {
     menu_items: function () {
-      return h('a', {href: '#/network'}, '/network')
+      return h('a', {href: '#/network'}, h("i.glyphicon.glyphicon-globe"), '/network')
     },
 
     builtin_tabs: function () {
@@ -172,5 +172,3 @@ exports.create = function (api) {
     }
   }
 }
-
-

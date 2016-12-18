@@ -21,7 +21,7 @@ exports.gives = {
 exports.create = function (api) {
   return {
     menu_items: function () {
-      return h('a', {href: '#/git-ssb'}, '/git-ssb')
+      return h('a', {href: '#/git-ssb'}, h("i.glyphicon.glyphicon-cube-black"), 'git-ssb')
     },
 
     screen_view: function (path, sbot) {

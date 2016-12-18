@@ -16,7 +16,7 @@ exports.gives = {
 exports.create = function (api) {
   return {
     menu_items: function () {
-      return h('a', {href: '#/key'}, '/key')
+      return h('a', {href: '#/key'}, h("i.glyphicon.glyphicon-link"), 'key')
     },
     screen_view: function (path, sbot) {
       if(path === '/key') {
@@ -52,11 +52,10 @@ exports.create = function (api) {
             )
           )
           return div
-        } else { 
+        } else {
           return h('p', 'Your key is saved at .ssb/secret')
         }
       }
     }
   }
 }
-
