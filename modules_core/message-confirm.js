@@ -37,7 +37,7 @@ exports.create = function (api) {
       }
     }
 
-    var okay = h('button.btn.btn-primary', 'okay', {onclick: function () {
+    var okay = h('button.btn.btn-primary', 'Send', {onclick: function () {
       lb.remove()
       api.publish(content, cb)
     }})
@@ -54,8 +54,8 @@ exports.create = function (api) {
     lb.show(h('div.column.message-confirm',
       h('div.panel.panel-default',
         h('div.panel-heading',
-          h('div.avatar', api.avatar(msg.value.author, 'avatar')),
-          h('div.message_meta.row', api.message_meta(msg))
+          h('div.message_meta.pull-right', api.message_meta(msg)),
+          h('div.avatar', api.avatar(msg.value.author, 'avatar'))
         ),
         h('div.panel-body', api.message_content(msg)
           || h('pre', JSON.stringify(msg, null, 2)))

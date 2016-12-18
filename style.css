@@ -9,7 +9,7 @@
 
 
 
-            /* custom template */
+/* custom template */
 html, body {
    height: 100%;
    font-family:verdana,arial,sans-serif;
@@ -89,7 +89,7 @@ hr {
     font-family:arial,sans-serif;
     top:0;
     position:fixed;
-    width:inherit;
+    width:100%;
 }
 
 .navbar-blue li > a,.navbar-toggle  {
@@ -300,12 +300,67 @@ small.text-muted {
 
 
 
-.screen {
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 0; right: 0;
-  overflow-y: hidden;
+
+/** patchbay specific css **/
+
+img.avatar
+{
+  height: 3em;
+  width: 3em;
 }
+
+
+.avatar-small
+{
+  width: 1.5em;
+}
+
+
+.thumbnail
+{
+  min-width: 3em;
+  min-height: 3em;
+}
+
+
+.message--mini *
+{
+  margin: 0.1em;
+}
+
+div.media-body > h4 > small > input[type="checkbox"]
+{
+  margin: 0.3em;
+}
+
+
+div.markdown img
+{
+  width: 100%;
+}
+
+
+.invite
+{
+  font-family: monospace;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #d9edf7;
+  word-break: break-all;
+}
+
+.message_actions
+{
+  float: right;
+}
+
+
+
+
+
+/** Cut down original css **/
+
 
 .column {
   display: flex;

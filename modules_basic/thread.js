@@ -74,7 +74,7 @@ exports.create = function (api) {
         branch: id //mutated when thread is loaded.
       }
 
-      var content = h('div.column.scroller__content')
+      var content = h('div.scroller__content')
       var div = h('div.column.scroller',
         {style: {'overflow-y': 'auto'}},
         h('div.scroller__wrapper',

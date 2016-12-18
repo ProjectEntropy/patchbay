@@ -50,7 +50,7 @@ exports.create = function (api) {
   return function (id) {
 
     var img = visualize(new Buffer(id.substring(1), 'base64'), 256)
-    img.classList.add('avatar--large')
+    img.classList.add('avatar')
 
     var lb = hyperlightbox()
     var name_input = h('input', {placeholder: 'rename'})
@@ -84,7 +84,7 @@ exports.create = function (api) {
               selected = image
               img.src = api.blob_url(image.link || image)
             }},
-            h('img.avatar--thumbnail', {src: api.blob_url(image)})
+            h('img.avatar', {src: api.blob_url(image)})
           )
         )
       })

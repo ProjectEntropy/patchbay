@@ -32,7 +32,7 @@ function streamToList(stream, el) {
 exports.create = function (api) {
 
   function image_link (id) {
-    return api.avatar_image_link(id, 'thumbnail')
+    return api.avatar_image_link(id, 'avatar')
   }
 
   return function (id) {
@@ -85,4 +85,3 @@ exports.create = function (api) {
   }
 
 }
-
