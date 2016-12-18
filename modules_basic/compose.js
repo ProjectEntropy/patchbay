@@ -120,7 +120,7 @@ exports.create = function (api) {
 
     var publishBtn = h('button.btn.btn-default.pull-right', 'Publish', {onclick: publish})
     var composer =
-      h('div.compose', h('div.column', ta,
+      h('div.compose', h('div', ta,
         accessories = h('div.compose__controls',
           //hidden until you focus the textarea
           {style: {display: opts.shrink === false ? '' : 'none'}},
