@@ -59,6 +59,7 @@ exports.create = function (api) {
 
     // Somehow get search thing into the menu
     tabs.querySelector('#search_holder').appendChild(search)
+    tabs.querySelector('#tabs_holder').appendChild(api.menu())
 
     //reposition hypertabs menu to inside a container...
     // tabs.insertBefore(
