@@ -9,7 +9,7 @@
 
 
 
-/* custom template */
+/* bootstrap theme */
 html, body {
    height: 100%;
    font-family:verdana,arial,sans-serif;
@@ -355,6 +355,24 @@ div.markdown img
   float: right;
 }
 
+.screen
+{
+  background-color: #e9eaed;
+
+  padding-top: 4em !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#sidebar {
+  background-color: #444444 !important;
+}
+
+.message
+{
+  font-size: 0.9em;
+  background-color: transparent !important;
+}
 
 
 

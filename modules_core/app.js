@@ -7,13 +7,6 @@ module.exports = {
   create: function (api) {
     return function () {
 
-      document.head.appendChild(h('link', {rel: "stylesheet", href:"dev-style.css"}))
-
-      document.head.appendChild(h('link', {rel: "stylesheet", href:"https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"}))
-
-      document.head.appendChild(h('script', {src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}))
-      document.head.appendChild(h('script', {src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}))
-
       document.head.appendChild(h('style', require('../style.css.json')))
 
       window.addEventListener('error', window.onError = function (e) {
