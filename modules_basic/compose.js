@@ -118,10 +118,10 @@ exports.create = function (api) {
     }
 
 
-    var publishBtn = h('button.btn', 'Publish', {onclick: publish})
+    var publishBtn = h('button.btn.btn-default.pull-right', 'Publish', {onclick: publish})
     var composer =
       h('div.compose', h('div.column', ta,
-        accessories = h('div.row.compose__controls',
+        accessories = h('div.compose__controls',
           //hidden until you focus the textarea
           {style: {display: opts.shrink === false ? '' : 'none'}},
           api.file_input(function (file) {
