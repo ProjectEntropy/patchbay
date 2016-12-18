@@ -68,7 +68,7 @@ exports.create = function (api) {
     })
 
     var state = h('label')
-    var label = h('span')
+    var label = h('button.btn')
 
     function update () {
       state.textContent = (
@@ -79,6 +79,9 @@ exports.create = function (api) {
       )
 
       label.textContent = you_follow ? 'unfollow' : 'follow'
+
+      var className = you_follow ? 'btn-warning' : 'btn-success'
+      label.classList.add(className)
     }
 
     return h('div', state,

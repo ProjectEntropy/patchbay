@@ -70,7 +70,7 @@ exports.create = function (api) {
     }
 
 
-    return h('div.column.profile',
+    return h('div.well',
       api.avatar_edit(id),
       api.avatar_action(id),
       h('div.profile__relationships.column',
